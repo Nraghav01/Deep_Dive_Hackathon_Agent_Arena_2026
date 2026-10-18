@@ -1,0 +1,214 @@
+{
+  "question": "What products did NovaCell launch, and what was its revenue growth in 2025?",
+  "sub_questions": [
+    {
+      "id": "SQ01",
+      "question": "What products did fictional company NovaCell launch?",
+      "supported_claims": 0
+    },
+    {
+      "id": "SQ02",
+      "question": "What was NovaCell's revenue growth in 2025?",
+      "supported_claims": 0
+    }
+  ],
+  "evidence": [
+    {
+      "passage_id": "E001",
+      "sub_question_id": "SQ01",
+      "url": "https://example.com/novacell-products",
+      "title": "NovaCell Product Announcement (TEST FIXTURE)",
+      "passage_text": "NovaCell launched two new battery products in 2025."
+    },
+    {
+      "passage_id": "E002",
+      "sub_question_id": "SQ02",
+      "url": "https://example.com/novacell-financials",
+      "title": "NovaCell Financial Update (TEST FIXTURE)",
+      "passage_text": "NovaCell's revenue grew by 12% in 2025."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C001",
+      "sub_question_id": "SQ01",
+      "text": "NovaCell launched two new battery products in 2025.",
+      "evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "claim_id": "C002",
+      "sub_question_id": "SQ02",
+      "text": "NovaCell's revenue grew by 12% in 2025.",
+      "evidence_ids": [
+        "E002"
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "claim_id": "C001",
+      "sub_question_id": "SQ01",
+      "verdict": "supported",
+      "supporting_quote": "NovaCell launched two new battery products in 2025.",
+      "reason": "The exact claim appears in the cited passage."
+    },
+    {
+      "claim_id": "C002",
+      "sub_question_id": "SQ02",
+      "verdict": "supported",
+      "supporting_quote": "NovaCell's revenue grew by 12% in 2025.",
+      "reason": "The exact claim appears in the cited passage."
+    }
+  ],
+  "iteration": 1,
+  "max_retries": 2,
+  "retry_query": "",
+  "needs_research": false,
+  "audit_trail": [
+    {
+      "timestamp": "2026-10-18T13:28:58.757122+00:00",
+      "iteration": 0,
+      "event": "planner_completed",
+      "original_question": "What products did NovaCell launch, and what was its revenue growth in 2025?",
+      "sub_question_ids": [
+        "SQ01",
+        "SQ02"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.757986+00:00",
+      "iteration": 0,
+      "event": "research_completed",
+      "query": "Initial research for NovaCell",
+      "new_evidence_ids": [
+        "E001"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.758705+00:00",
+      "iteration": 0,
+      "event": "synthesis_completed",
+      "claim_ids": [
+        "C001",
+        "C002"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.759324+00:00",
+      "iteration": 0,
+      "event": "verification_completed",
+      "verdicts": [
+        {
+          "claim_id": "C001",
+          "sub_question_id": "SQ01",
+          "verdict": "supported",
+          "supporting_quote": "NovaCell launched two new battery products in 2025.",
+          "reason": "The exact claim appears in the cited passage."
+        },
+        {
+          "claim_id": "C002",
+          "sub_question_id": "SQ02",
+          "verdict": "unsupported",
+          "supporting_quote": null,
+          "reason": "The cited passage does not establish the complete claim."
+        }
+      ],
+      "supported_by_question": {
+        "SQ01": 1,
+        "SQ02": 0
+      },
+      "retry_required": true,
+      "retry_query": "Find direct evidence for: What was NovaCell's revenue growth in 2025?"
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.760238+00:00",
+      "iteration": 0,
+      "event": "research_retry_started",
+      "next_iteration": 1,
+      "query": "Find direct evidence for: What was NovaCell's revenue growth in 2025?"
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.760813+00:00",
+      "iteration": 1,
+      "event": "research_completed",
+      "query": "Find direct evidence for: What was NovaCell's revenue growth in 2025?",
+      "new_evidence_ids": [
+        "E002"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.761414+00:00",
+      "iteration": 1,
+      "event": "synthesis_completed",
+      "claim_ids": [
+        "C001",
+        "C002"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.761966+00:00",
+      "iteration": 1,
+      "event": "verification_completed",
+      "verdicts": [
+        {
+          "claim_id": "C001",
+          "sub_question_id": "SQ01",
+          "verdict": "supported",
+          "supporting_quote": "NovaCell launched two new battery products in 2025.",
+          "reason": "The exact claim appears in the cited passage."
+        },
+        {
+          "claim_id": "C002",
+          "sub_question_id": "SQ02",
+          "verdict": "supported",
+          "supporting_quote": "NovaCell's revenue grew by 12% in 2025.",
+          "reason": "The exact claim appears in the cited passage."
+        }
+      ],
+      "supported_by_question": {
+        "SQ01": 1,
+        "SQ02": 1
+      },
+      "retry_required": false,
+      "retry_query": ""
+    },
+    {
+      "timestamp": "2026-10-18T13:28:58.762774+00:00",
+      "iteration": 1,
+      "event": "final_report_created",
+      "status": "complete",
+      "supported_claim_count": 2,
+      "unresolved_sub_questions": []
+    }
+  ],
+  "final_report": {
+    "question": "What products did NovaCell launch, and what was its revenue growth in 2025?",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "sub_question_id": "SQ01",
+        "text": "NovaCell launched two new battery products in 2025.",
+        "evidence_ids": [
+          "E001"
+        ],
+        "verdict": "supported",
+        "supporting_quote": "NovaCell launched two new battery products in 2025."
+      },
+      {
+        "claim_id": "C002",
+        "sub_question_id": "SQ02",
+        "text": "NovaCell's revenue grew by 12% in 2025.",
+        "evidence_ids": [
+          "E002"
+        ],
+        "verdict": "supported",
+        "supporting_quote": "NovaCell's revenue grew by 12% in 2025."
+      }
+    ],
+    "unresolved_sub_questions": [],
+    "iterations_used": 1,
+    "status": "complete"
+  }
+}

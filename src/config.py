@@ -13,6 +13,8 @@ class LLMConfig:
     base_url: str
     model: str
     max_output_tokens: int
+    max_calls_per_run: int
+    max_total_tokens_per_run: int
 
 
 def load_llm_config() -> LLMConfig:
@@ -45,10 +47,23 @@ def load_llm_config() -> LLMConfig:
     if max_tokens < 1:
         raise ValueError("LLM_MAX_OUTPUT_TOKENS must be positive.")
 
+    max_calls_per_run = int(
+    os.getenv("LLM_MAX_CALLS_PER_RUN", "12")
+    )
+
+    max_total_tokens_per_run = int(
+        os.getenv("LLM_MAX_TOTAL_TOKENS_PER_RUN", "10000")
+    )
+
+    if max_calls_per_run < 1 or max_total_tokens_per_run < 1:
+        raise ValueError("Workflow budgets must be positive.")
+
     return LLMConfig(
         provider=provider,
         api_key=api_key,
         base_url=base_url,
         model=model,
         max_output_tokens=max_tokens,
+        max_calls_per_run=max_calls_per_run,
+        max_total_tokens_per_run=max_total_tokens_per_run,
     )
